@@ -17,6 +17,15 @@
     "moment": "^2.27.0",
     "mongoose": "^5.9.28",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "express-message": "*",
+    "express-session": "*",
+    "mongodb": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
   }
 }

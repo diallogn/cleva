@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +12,11 @@ var testAPIRouter = require('./routes/testAPI');
 var membersRouter = require('./routes/api/members');
 
 var app = express();
+
+// Connect Database
+mongoose.connect('mongodb://localhost/forum', {useNewUrlParser:true, useUnifiedTopology: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

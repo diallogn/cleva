@@ -1,6 +1,14 @@
 var members = require('../Members');
 
+// var Members = require('../models/member')
+
 exports.get_members = (req, res, next) => {
+    // Members.find({}, 'id name email status')
+    // .exec(function (err, list_members) {
+    //     if(err) {return next(err);}
+    //     //Succeful, so render
+    //     res.json(list_members);
+    // })
     res.json(members);
 }
 
