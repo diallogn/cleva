@@ -6,6 +6,18 @@ var logger = require('morgan');
 var cors = require('cors');
 var mongoose = require('mongoose');
 
+var async = require('async');
+var bcryptjs = require('bcryptjs');
+var moment = require('moment');
+var debug = require('debug');
+var expressValidator = require('express-validator');
+var httpErrors = require('http-errors');
+var bodyParser = require('body-parser');
+var flash = require('connect-flash');
+var session = require('express-session');
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require('./routes/testAPI');
@@ -14,7 +26,7 @@ var membersRouter = require('./routes/api/members');
 var app = express();
 
 // Connect Database
-mongoose.connect('mongodb://localhost/forum', {useNewUrlParser:true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/login', {useNewUrlParser:true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
